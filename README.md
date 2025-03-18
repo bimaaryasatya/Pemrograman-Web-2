@@ -2,4 +2,4 @@
 Repositori Untuk Mata Kuliah Pemrograman WEB 2 Laravel 🖥️
 
 Cara Menginstall Laravel:
-https://bimarailfansslw69.wordpress.com/2025/03/17/cara-menginstall-laravel-12-dengan-mudah/
+https://bimaaryasatya-ti.blogspot.com/2025/03/cara-menginstall-laravel-12.html
