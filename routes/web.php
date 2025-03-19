@@ -19,6 +19,10 @@ Route::get('/checkout', function(){
     return "Checkout";
 });
 
+Route::get('/Product-Detail', function(){
+    return "Product Detail";
+});
+
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
     ->name('dashboard');
