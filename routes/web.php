@@ -3,12 +3,16 @@
 use Illuminate\Support\Facades\Route;
 use Livewire\Volt\Volt;
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('home');
+// Route::get('/', function () {
+//     return view('welcome');
+// })->name('home');
 
-Route::get('/dashboard', function(){
-    return "Toko";
+Route::get('/', function(){
+    return view('web.homepage');
+});
+
+Route::get('/products', function(){
+    return view('web.products');
 });
 
 Route::get('/keranjang', function(){
@@ -18,6 +22,8 @@ Route::get('/keranjang', function(){
 Route::get('/checkout', function(){
     return "Checkout";
 });
+
+
 
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
