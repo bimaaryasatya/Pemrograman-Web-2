@@ -24,7 +24,7 @@
         <flux:badge color="lime" class="mb-3 w-full">{{session()->get('successMessage')}}</flux:badge>
     @endif
 
-    <table class="min-w-full leading-normal">
+    <table class="min-w-full leading-normal text-black">
             <thead>
                 <tr>
                     <th class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
@@ -50,5 +50,47 @@
                     </th>
                 </tr>
             </thead>
+            <tbody>
+                @forelse ($categories as $category)
+                    <tr>
+                        <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                            {{ $category->id }}
+                        </td>
+                        <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                            @if($category->image)
+                                <img src="{{ asset('storage/' . $category->image) }}" alt="{{ $category->name }}" class="w-16 h-16 object-cover rounded">
+                            @else
+                                <span class="text-gray-500">No Image</span>
+                            @endif
+                        </td>
+                        <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                            {{ $category->name }}
+                        </td>
+                        <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                            {{ $category->slug }}
+                        </td>
+                        <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                            {{ $category->description }}
+                        </td>
+                        <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                            {{ $category->created_at->format('Y-m-d') }}
+                        </td>
+                        <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                            <a href="{{ route('categories.edit', $category->id) }}" class="text-indigo-600 hover:text-indigo-900 mr-3">Edit</a>
+                            <form action="{{ route('categories.destroy', $category->id) }}" method="POST" class="inline" onsubmit="return confirm('Are you sure you want to delete this category?');">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="text-red-600 hover:text-red-900">Delete</button>
+                            </form>
+                        </td>
+                    </tr>
+                @empty
+                    <tr>
+                        <td colspan="7" class="px-5 py-5 border-b border-gray-200 bg-white text-sm text-center">
+                            No categories found.
+                        </td>
+                    </tr>
+                @endforelse
+            </tbody>
     </table>
 </x-layouts.app>

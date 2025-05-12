@@ -4,7 +4,7 @@
     <div class="p-6 max-w-3xl mx-auto">
         <h1 class="text-2xl font-semibold text-gray-900 dark:text-white mb-6">Add New Product</h1>
 
-        <form action="{{ route('dashboard.products.store') }}" method="POST" class="space-y-6">
+        <form action="{{ route('dashboard.products.store') }}" method="POST" enctype="multipart/form-data" class="space-y-6">
             @csrf
 
             <div>
@@ -55,6 +55,15 @@
                 <input type="number" name="stock" id="stock" value="{{ old('stock') }}" min="0" required
                     class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 dark:bg-gray-800 dark:border-gray-700 dark:text-white" />
                 @error('stock')
+                    <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                @enderror
+            </div>
+
+            <div>
+                <label for="image" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Image</label>
+                <input type="file" name="image" id="image"
+                    class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 dark:bg-gray-800 dark:border-gray-700 dark:text-white" />
+                @error('image')
                     <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
                 @enderror
             </div>

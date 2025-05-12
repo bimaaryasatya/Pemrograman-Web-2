@@ -32,7 +32,13 @@ class ProductController extends Controller
             'price' => 'required|numeric|min:0',
             'stock' => 'required|integer|min:0',
             'product_category_id' => 'nullable|exists:product_categories,id',
+            'image' => 'nullable|image|max:2048',
         ]);
+
+        if ($request->hasFile('image')) {
+            $path = $request->file('image')->store('products', 'public');
+            $validated['image_url'] = $path;
+        }
 
         $validated['slug'] = Str::slug($validated['name']);
         $validated['sku'] = Str::upper(Str::random(8));

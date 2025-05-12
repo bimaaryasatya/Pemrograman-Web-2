@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Categories;
+use Illuminate\Support\Str;
 
 class ProductCategoryController extends Controller
 {
@@ -24,7 +25,7 @@ class ProductCategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('dashboard.categories.create');
     }
 
     /**
@@ -32,7 +33,26 @@ class ProductCategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'name' => 'required|string|max:255|unique:product_categories,name',
+            'slug' => 'nullable|string|max:255|unique:product_categories,slug',
+            'description' => 'nullable|string',
+            'image' => 'nullable|image|max:2048',
+        ]);
+
+        if ($request->hasFile('image')) {
+            $path = $request->file('image')->store('categories', 'public');
+            $validated['image'] = $path;
+        }
+
+        // If slug is not provided, generate from name
+        if (empty($validated['slug'])) {
+            $validated['slug'] = \Str::slug($validated['name']);
+        }
+
+        \App\Models\Categories::create($validated);
+
+        return redirect()->route('categories.index')->with('successMessage', 'Category created successfully.');
     }
 
     /**
