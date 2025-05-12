@@ -1,10 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProductController;
 use Livewire\Volt\Volt;
 use App\Http\Controllers\HomepageController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProductCategoryController;
+
 
 
 Route::get('/', [HomepageController::class, 'index'])->name('home');
@@ -18,7 +20,14 @@ Route::get('checkout', [HomepageController::class, 'checkout']);
 Route::group(['prefix'=>'dashboard'], function(){
      Route::get('/',[DashboardController::class,'index'])->name('dashboard');
      Route::resource('categories', ProductCategoryController::class);
-     Route::get('products', [DashboardController::class, 'products'])->name('products');
+     Route::resource('products', ProductController::class)->names([
+         'index' => 'dashboard.products.index',
+         'create' => 'dashboard.products.create',
+         'store' => 'dashboard.products.store',
+         'edit' => 'dashboard.products.edit',
+         'update' => 'dashboard.products.update',
+         'destroy' => 'dashboard.products.destroy',
+     ]);
     })->middleware(['auth', 'verified']);
 
 
