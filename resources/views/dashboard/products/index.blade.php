@@ -1,6 +1,6 @@
 <x-layouts.app :title="__('Products')">
     <div class="relative mb-6 w-full">
-        <flux:heading size="xl">Products</flux:heading>
+        <flux:heading size="xl">Products 🛍️</flux:heading>
         <flux:subheading size="lg" class="mb-6">Manage data Products</flux:subheading>
         <flux:separator variant="subtle" />
     </div>
@@ -56,8 +56,8 @@
                         {{ $product->id }}
                     </td>
                     <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                        @if($product->image)
-                            <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}" class="w-16 h-16 object-cover rounded">
+                        @if($product->image_url)
+                            <img src="{{ asset('storage/' . $product->image_url) }}" alt="{{ $product->name }}" class="w-16 h-16 object-cover rounded">
                         @else
                             <span class="text-gray-500">No Image</span>
                         @endif
@@ -76,7 +76,7 @@
                     </td>
                     <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                         <a href="{{ route('dashboard.products.edit', $product->id) }}" class="text-indigo-600 hover:text-indigo-900 mr-3">Edit</a>
-                        <form action="{{ route('dashboard.products.destroy', $product->id) }}" method="POST" class="inline" onsubmit="return confirm('Are you sure you want to delete this product?');">
+                        <form action="{{ route('dashboard.products.destroy', $product->id) }}" method="POST" class="inline" onsubmit="return confirm('Apakah Kamu Yakin Menghapus Data Tersebut?');">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="text-red-600 hover:text-red-900">Delete</button>

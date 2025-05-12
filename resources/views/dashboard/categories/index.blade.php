@@ -1,7 +1,7 @@
 <x-layouts.app :title="__('Categories')">
     <div class="relative mb-6 w-full">
-        <flux:heading size="xl">Product Categories</flux:heading>
-        <flux:subheading size="lg" class="mb-6">Manage data Product Categories</flux:heading>
+        <flux:heading size="xl">Product Categories 🛒</flux:heading>
+        <flux:subheading size="lg" class="mb-6 text-white">Manage data Product Categories</flux:heading>
         <flux:separator variant="subtle" />
 
     </div>
@@ -58,7 +58,7 @@
                         </td>
                         <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                             @if($category->image)
-                                <img src="{{ asset('storage/' . $category->image) }}" alt="{{ $category->name }}" class="w-16 h-16 object-cover rounded">
+                                <img src="{{ asset('storage/' . $category->image) }}" alt="{{ $category->name }}" class="w-10 h-10 object-cover rounded">
                             @else
                                 <span class="text-gray-500">No Image</span>
                             @endif
