@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('slug', 255)->unique();
             $table->text('description')->nullable();
             $table->string('sku', 50)->unique();
-            $table->decimal('price', 10, 2)->unsigned();
+            $table->decimal('price', 20, 2)->unsigned();
             $table->integer('stock')->default(0)->unsigned();
             $table->unsignedBigInteger('product_category_id')->nullable();
             $table->string('image_url', 255)->nullable();

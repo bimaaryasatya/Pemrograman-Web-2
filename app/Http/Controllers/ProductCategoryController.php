@@ -68,7 +68,8 @@ class ProductCategoryController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $category = Categories::findOrFail($id);
+        return view('dashboard.categories.edit', compact('category'));
     }
 
     /**
@@ -76,7 +77,28 @@ class ProductCategoryController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $category = Categories::findOrFail($id);
+
+        $validated = $request->validate([
+            'name' => 'required|string|max:255|unique:product_categories,name,' . $category->id,
+            'slug' => 'nullable|string|max:255|unique:product_categories,slug,' . $category->id,
+            'description' => 'nullable|string',
+            'image' => 'nullable|image|max:2048',
+        ]);
+
+        if ($request->hasFile('image')) {
+            $path = $request->file('image')->store('categories', 'public');
+            $validated['image'] = $path;
+        }
+
+        // If slug is not provided, generate from name
+        if (empty($validated['slug'])) {
+            $validated['slug'] = \Str::slug($validated['name']);
+        }
+
+        $category->update($validated);
+
+        return redirect()->route('categories.index')->with('successMessage', 'Category updated successfully.');
     }
 
     /**
