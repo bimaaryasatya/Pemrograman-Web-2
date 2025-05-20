@@ -17,7 +17,7 @@ Route::get('category/{slug}', [HomepageController::class, 'category']);
 Route::get('cart', [HomepageController::class, 'cart']);
 Route::get('checkout', [HomepageController::class, 'checkout']);
 
-Route::group(['prefix'=>'dashboard'], function(){
+Route::middleware(['auth', 'verified'])->prefix('dashboard')->group(function (){
      Route::get('/',[DashboardController::class,'index'])->name('dashboard');
      Route::resource('categories', ProductCategoryController::class);
      Route::resource('products', ProductController::class)->names([
@@ -28,7 +28,7 @@ Route::group(['prefix'=>'dashboard'], function(){
          'update' => 'dashboard.products.update',
          'destroy' => 'dashboard.products.destroy',
      ]);
-    })->middleware(['auth', 'verified']);
+    });
 
 
 Route::middleware(['auth'])->group(function () {
