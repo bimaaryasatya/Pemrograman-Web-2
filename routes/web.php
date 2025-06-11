@@ -1,20 +1,36 @@
 <?php
 
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\CustomerAuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomepageController;
 use App\Http\Controllers\ProductCategoryController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
-use Livewire\Volt\Volt;
 
 Route::get('/', [HomepageController::class, 'index'])->name('home');
-Route::get('products', [HomepageController::class, 'products']);
-Route::get('product/{slug}', [HomepageController::class, 'product']);
+Route::get('products', [HomepageController::class, 'products'])->name('product.show');
+Route::get('product/{slug}', [HomepageController::class, 'product'])->name('product.show');
 Route::get('categories', [HomepageController::class, 'categories']);
 Route::get('category/{slug}', [HomepageController::class, 'category']);
-Route::get('cart', [HomepageController::class, 'cart']);
+Route::get('cart', [HomepageController::class, 'cart'])->name('cart.index');
 Route::get('checkout', [HomepageController::class, 'checkout']);
+
+// Route::group(['middleware' => ['is_customer_login']], function () {
+Route::controller(CartController::class)->group(function () {
+    Route::post('cart/add', 'add')->name('cart.add');
+    Route::delete('cart/remove/{id}', 'remove')->name('cart.remove');
+    Route::patch('cart/update/{id}', 'update')->name('cart.update');
+});
+// });
+
+Route::get('checkout/success', [HomepageController::class, 'checkout_success'])->name('checkout.success');
+Route::get('checkout/failure', [HomepageController::class, 'checkout_failure'])->name('checkout.failure');
+Route::get('checkout/thankyou', [HomepageController::class, 'checkout_thankyou'])->name('checkout.thankyou');
+Route::get('checkout/thankyou/{order}', [HomepageController::class, 'checkout_thankyou'])->name('checkout.thankyou.order');
+Route::get('checkout/thankyou/{order}/print', [HomepageController::class, 'checkout_thankyou_print'])->name('checkout.thankyou.print');
+Route::get('checkout/thankyou/{order}/download', [HomepageController::class, 'checkout_thankyou_download'])->name('checkout.thankyou.download');
+use Livewire\Volt\Volt;
 
 Route::middleware(['auth', 'verified'])->prefix('dashboard')->group(function () {
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard');

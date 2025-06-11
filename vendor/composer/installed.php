@@ -3,13 +3,22 @@
         'name' => 'laravel/livewire-starter-kit',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => '6d61a27d2896f62c30cd878f5bcbd9f94b9b8623',
+        'reference' => 'b09e0eb9ef084409661367dc6d93acb548891475',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
         'dev' => true,
     ),
     'versions' => array(
+        'binafy/laravel-cart' => array(
+            'pretty_version' => 'v1.2.1',
+            'version' => '1.2.1.0',
+            'reference' => 'cc6da4cc85e6edbeeae978aed6823b62346ce15b',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../binafy/laravel-cart',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
         'brianium/paratest' => array(
             'pretty_version' => 'v7.7.0',
             'version' => '7.7.0.0',
@@ -424,7 +433,7 @@
         'laravel/livewire-starter-kit' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '6d61a27d2896f62c30cd878f5bcbd9f94b9b8623',
+            'reference' => 'b09e0eb9ef084409661367dc6d93acb548891475',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

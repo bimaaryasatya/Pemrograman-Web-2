@@ -14,8 +14,8 @@ class ComposerStaticInit326722d5460f937123577e0b4c082802
         '8825ede83f2f289127722d4e842cf7e8' => __DIR__ . '/..' . '/symfony/polyfill-intl-grapheme/bootstrap.php',
         'b6b991a57620e2fb6b2f66f03fe9ddc2' => __DIR__ . '/..' . '/symfony/string/Resources/functions.php',
         '662a729f963d39afe703c9d9b7ab4a8c' => __DIR__ . '/..' . '/symfony/polyfill-php83/bootstrap.php',
-        '667aeda72477189d0494fecd327c3641' => __DIR__ . '/..' . '/symfony/var-dumper/Resources/functions/dump.php',
         'f598d06aa772fa33d905e87be6398fb1' => __DIR__ . '/..' . '/symfony/polyfill-intl-idn/bootstrap.php',
+        '667aeda72477189d0494fecd327c3641' => __DIR__ . '/..' . '/symfony/var-dumper/Resources/functions/dump.php',
         'a4a119a56e50fbb293281d9a48007e0e' => __DIR__ . '/..' . '/symfony/polyfill-php80/bootstrap.php',
         '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
         '35a6ad97d21e794e7e22a17d806652e4' => __DIR__ . '/..' . '/nunomaduro/termwind/src/Functions.php',
@@ -198,6 +198,7 @@ class ComposerStaticInit326722d5460f937123577e0b4c082802
         'B' => 
         array (
             'Brick\\Math\\' => 11,
+            'Binafy\\LaravelCart\\' => 19,
         ),
         'A' => 
         array (
@@ -602,6 +603,10 @@ class ComposerStaticInit326722d5460f937123577e0b4c082802
         array (
             0 => __DIR__ . '/..' . '/brick/math/src',
         ),
+        'Binafy\\LaravelCart\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/binafy/laravel-cart/src',
+        ),
         'App\\' => 
         array (
             0 => __DIR__ . '/../..' . '/app',
@@ -633,6 +638,21 @@ class ComposerStaticInit326722d5460f937123577e0b4c082802
         'App\\View\\Components\\layout' => __DIR__ . '/../..' . '/app/View/Components/layout.php',
         'App\\View\\Components\\navbar' => __DIR__ . '/../..' . '/app/View/Components/navbar.php',
         'Attribute' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
+        'Binafy\\LaravelCart\\Cartable' => __DIR__ . '/..' . '/binafy/laravel-cart/src/Cartable.php',
+        'Binafy\\LaravelCart\\Drivers\\Driver' => __DIR__ . '/..' . '/binafy/laravel-cart/src/Drivers/Driver.php',
+        'Binafy\\LaravelCart\\Drivers\\LaravelCartDatabase' => __DIR__ . '/..' . '/binafy/laravel-cart/src/Drivers/LaravelCartDatabase.php',
+        'Binafy\\LaravelCart\\Drivers\\LaravelCartSession' => __DIR__ . '/..' . '/binafy/laravel-cart/src/Drivers/LaravelCartSession.php',
+        'Binafy\\LaravelCart\\Events\\LaravelCartDecreaseQuantityEvent' => __DIR__ . '/..' . '/binafy/laravel-cart/src/Events/LaravelCartDecreaseQuantityEvent.php',
+        'Binafy\\LaravelCart\\Events\\LaravelCartEmptyEvent' => __DIR__ . '/..' . '/binafy/laravel-cart/src/Events/LaravelCartEmptyEvent.php',
+        'Binafy\\LaravelCart\\Events\\LaravelCartIncreaseQuantityEvent' => __DIR__ . '/..' . '/binafy/laravel-cart/src/Events/LaravelCartIncreaseQuantityEvent.php',
+        'Binafy\\LaravelCart\\Events\\LaravelCartRemoveItemEvent' => __DIR__ . '/..' . '/binafy/laravel-cart/src/Events/LaravelCartRemoveItemEvent.php',
+        'Binafy\\LaravelCart\\Events\\LaravelCartStoreItemEvent' => __DIR__ . '/..' . '/binafy/laravel-cart/src/Events/LaravelCartStoreItemEvent.php',
+        'Binafy\\LaravelCart\\LaravelCart' => __DIR__ . '/..' . '/binafy/laravel-cart/src/LaravelCart.php',
+        'Binafy\\LaravelCart\\Manager\\LaravelCartManager' => __DIR__ . '/..' . '/binafy/laravel-cart/src/Manager/LaravelCartManager.php',
+        'Binafy\\LaravelCart\\Models\\Cart' => __DIR__ . '/..' . '/binafy/laravel-cart/src/Models/Cart.php',
+        'Binafy\\LaravelCart\\Models\\CartItem' => __DIR__ . '/..' . '/binafy/laravel-cart/src/Models/CartItem.php',
+        'Binafy\\LaravelCart\\Observers\\CartItemObserve' => __DIR__ . '/..' . '/binafy/laravel-cart/src/Observers/CartItemObserve.php',
+        'Binafy\\LaravelCart\\Providers\\LaravelCartServiceProvider' => __DIR__ . '/..' . '/binafy/laravel-cart/src/Providers/LaravelCartServiceProvider.php',
         'Brick\\Math\\BigDecimal' => __DIR__ . '/..' . '/brick/math/src/BigDecimal.php',
         'Brick\\Math\\BigInteger' => __DIR__ . '/..' . '/brick/math/src/BigInteger.php',
         'Brick\\Math\\BigNumber' => __DIR__ . '/..' . '/brick/math/src/BigNumber.php',
@@ -749,8 +769,11 @@ class ComposerStaticInit326722d5460f937123577e0b4c082802
         'Cron\\HoursField' => __DIR__ . '/..' . '/dragonmantank/cron-expression/src/Cron/HoursField.php',
         'Cron\\MinutesField' => __DIR__ . '/..' . '/dragonmantank/cron-expression/src/Cron/MinutesField.php',
         'Cron\\MonthField' => __DIR__ . '/..' . '/dragonmantank/cron-expression/src/Cron/MonthField.php',
+        'Database\\Factories\\CategoriesFactory' => __DIR__ . '/../..' . '/database/factories/CategoriesFactory.php',
         'Database\\Factories\\UserFactory' => __DIR__ . '/../..' . '/database/factories/UserFactory.php',
+        'Database\\Seeders\\CategoriesSeeder' => __DIR__ . '/../..' . '/database/seeders/CategoriesSeeder.php',
         'Database\\Seeders\\DatabaseSeeder' => __DIR__ . '/../..' . '/database/seeders/DatabaseSeeder.php',
+        'Database\\Seeders\\ProductSeeder' => __DIR__ . '/../..' . '/database/seeders/ProductSeeder.php',
         'DateError' => __DIR__ . '/..' . '/symfony/polyfill-php83/Resources/stubs/DateError.php',
         'DateException' => __DIR__ . '/..' . '/symfony/polyfill-php83/Resources/stubs/DateException.php',
         'DateInvalidOperationException' => __DIR__ . '/..' . '/symfony/polyfill-php83/Resources/stubs/DateInvalidOperationException.php',
